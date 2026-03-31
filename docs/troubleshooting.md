@@ -35,3 +35,14 @@ su -u postgres -c psql
 ip route show
 
 ```
+
+<h2> General Admin </h2>
+
+```bash
+# Check service status
+systemctl status
+
+# Check for service in logs
+journalctl -u serviceName -b
+
+```
