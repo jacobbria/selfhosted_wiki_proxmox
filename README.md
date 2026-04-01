@@ -26,8 +26,8 @@ graph TD
             style Surface fill:,stroke:#333,stroke-width:4px
             
             %% The Virtualized Containers
-            Wiki[fa:fa-globe Wiki.js Container<br/>10.10.10.20]
-            DB[fa:fa-database Postgres Container<br/>10.10.10.30]
+            Wiki[fa:fa-globe Wiki.js Container<br/>]
+            DB[fa:fa-database Postgres Container<br/>]
             
             %% Internal Connection
             Wiki <-->|SQL Queries| DB
