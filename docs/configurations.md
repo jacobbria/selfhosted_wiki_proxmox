@@ -3,7 +3,7 @@
 
 
 # Proxmox
-<h3> Check Sleep status on device</h3>
+<h3> Change Sleep Configurations </h3>
 
 ```bash
 # Loaded & Inactive mean it is able to be used
