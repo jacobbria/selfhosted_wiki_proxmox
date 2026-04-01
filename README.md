@@ -34,7 +34,7 @@ graph TD
         end
 
         %% Connection from Laptop to Wiki
-        Laptop ---|HTTP Port 80| Wiki
+        Laptop --- Wiki
     end
 
 
