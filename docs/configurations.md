@@ -12,6 +12,15 @@ systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.targe
 # Ensure Sleep status is not enabled
 systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.target
 ```
+
+<h3> Networking Set Up </h3>
+```bash
+# cd to /etc/network/interfaces
+
+
+
+```
+
 # Wiki.js Container
 <h3>  Start Wiki.js Node server on container boot up </h3>
 
