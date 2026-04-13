@@ -65,8 +65,7 @@ source /etc/network/interfaces.d/*
 
 ```bash
 #Create a new service
-sudo nano /etc/systemd/system/wikijs.service
-
+sudo nano [PATH_TO_SERVICE]
 # Enter the following
 [Unit]
 Description=Wiki.js
@@ -75,7 +74,7 @@ After=network.target postgresql.service
 [Service]
 Type=simple
 User=root
-WorkingDirectory=/var/www/wiki
+WorkingDirectory=[WORKING_DIR]
 ExecStart=/usr/bin/node server
 Restart=always
 RestartSec=5
