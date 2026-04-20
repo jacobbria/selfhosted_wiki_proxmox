@@ -31,8 +31,8 @@ graph TD
             direction TB
             style Dell fill:none,stroke:#0078d7,stroke-width:3px
             
-            Wiki[fa:fa-globe Wiki.js&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
-            DB[fa:fa-database Postgres&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+            Wiki[fa:fa-globe Wiki.js]
+            DB[fa:fa-database Postgres]
             
             Wiki --- DB
         end
@@ -43,15 +43,16 @@ graph TD
             style Surface fill:none,stroke:#333,stroke-width:3px
             
             Zabbix[fa:fa-chart-line Zabbix Monitoring]
-            Wazuh[fa:fa-shield-halved Wazuh SIEM&nbsp;&nbsp;&nbsp;]
-            
-            Zabbix --- Wazuh
+            Wazuh[fa:fa-shield-halved Wazuh SIEM]
         end
 
-        %% Connections
-        Laptop --- Dell
-        Laptop --- Surface
-        Dell --- Surface
+        %% Connections (The Management Plane flow)
+        Laptop -.-> Zabbix
+        Laptop -.-> Wiki
+        
+        %% The Monitoring Flow (The "Eyes" watching the "Worker")
+        Zabbix --- Dell
+        Wazuh --- Dell
     end
 ```
 
