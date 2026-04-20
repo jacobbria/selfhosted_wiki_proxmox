@@ -1,4 +1,4 @@
-# Self Hosting Wiki.js using Proxmox
+# Promox Self-Host
 Converting existing hardware into a Proxmox server to host a LAN available Wiki.js instance and PostgresSQL DB using containers and networking basics.
 
 # Stack
@@ -18,23 +18,36 @@ graph TD
         direction TB
         style LAN fill:none,stroke:#999,stroke-width:2px,stroke-dasharray: 5 5
 
-        %% External Access Node
+        %% Central Access Point
         Laptop[fa:fa-laptop Personal Laptop]
 
-        %% The Physical Host (Surface Pro)
-        subgraph Surface [fa:fa-server Surface Pro / Proxmox Host]
-            style Surface fill:,stroke:#333,stroke-width:4px
+        %% Node 1: Dell Server
+        subgraph Dell [fa:fa-server Dell Server / Node 1]
+            direction TB
+            style Dell fill:none,stroke:#0078d7,stroke-width:3px
             
-            %% The Virtualized Containers
-            Wiki[fa:fa-globe Wiki.js Container<br/>]
-            DB[fa:fa-database Postgres Container<br/>]
+            Wiki[fa:fa-globe Wiki.js&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+            DB[fa:fa-database Postgres&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
             
-            %% Internal Connection
-            Wiki <-->|SQL Queries| DB
+            Wiki --- DB
         end
 
-        %% Connection from Laptop to Wiki
-        Laptop --- Wiki
+        %% Node 2: Surface Pro
+        subgraph Surface [fa:fa-tablet Surface Pro / Node 2]
+            direction TB
+            style Surface fill:none,stroke:#333,stroke-width:3px
+            
+            Zabbix[fa:fa-chart-line Zabbix Monitoring]
+            Wazuh[fa:fa-shield-halved Wazuh SIEM&nbsp;&nbsp;&nbsp;]
+            
+            Zabbix --- Wazuh
+        end
+
+        %% Connections
+        Laptop --- Dell
+        Laptop --- Surface
+        Dell --- Surface
     end
+```
 
 
